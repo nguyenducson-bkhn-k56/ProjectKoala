@@ -16,26 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="4417" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="1658" max="32767" attributes="0"/>
-                  <Component id="Panel_DSLop" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="1659" max="32767" attributes="0"/>
-              </Group>
-          </Group>
+          <Component id="Panel_DSLop" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="1107" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="303" max="32767" attributes="0"/>
-                  <Component id="Panel_DSLop" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="304" max="32767" attributes="0"/>
-              </Group>
-          </Group>
+          <Component id="Panel_DSLop" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -135,6 +121,9 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="X&#xf3;a"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Button_DSLop_XoaMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

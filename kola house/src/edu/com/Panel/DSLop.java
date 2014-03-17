@@ -9,6 +9,7 @@ package edu.com.Panel;
 import DataBase.ConnectData;
 import edu.com.CloseButton.CloseTabButton;
 import edu.com.Dialog.ThemSuaLop;
+import edu.com.upbang.EditTable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -91,6 +92,11 @@ public class DSLop extends javax.swing.JPanel {
 
         Button_DSLop_Xoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/com/image/xoa.jpg"))); // NOI18N
         Button_DSLop_Xoa.setToolTipText("Xóa");
+        Button_DSLop_Xoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_DSLop_XoaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Panel_DSLopLayout = new javax.swing.GroupLayout(Panel_DSLop);
         Panel_DSLop.setLayout(Panel_DSLopLayout);
@@ -122,21 +128,11 @@ public class DSLop extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 4417, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 1658, Short.MAX_VALUE)
-                    .addComponent(Panel_DSLop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 1659, Short.MAX_VALUE)))
+            .addComponent(Panel_DSLop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1107, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 303, Short.MAX_VALUE)
-                    .addComponent(Panel_DSLop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 304, Short.MAX_VALUE)))
+            .addComponent(Panel_DSLop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -164,21 +160,45 @@ public class DSLop extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_DSLop_ThemLopMouseClicked
 
     private void Button_DSLop_SuaLopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DSLop_SuaLopMouseClicked
-        ThemSuaLop suaLop = new ThemSuaLop(null,true);
+        int a=jTable4.getSelectedRow();
+        String tenlop=jTable4.getValueAt(a,0).toString();
+        String giaovien=jTable4.getValueAt(a,3).toString();
+        String hocky=jTable4.getValueAt(a,2).toString();
+        String khoihoc=jTable4.getValueAt(a,1).toString();
+        String sohs=jTable4.getValueAt(a,6).toString();
+        String trungtam="Bà Triệu";
+        ThemSuaLop suaLop = new ThemSuaLop(null,true,tenlop,giaovien,hocky,khoihoc,trungtam,sohs);
         suaLop.setLocation(420, 130);
         suaLop.show();
+        if(suaLop.getButton()==true)
+        {
+            jTable4.setValueAt(suaLop.getTenLop(), a, 0);
+            jTable4.setValueAt(suaLop.getGiaoVien(), a, 3);
+            jTable4.setValueAt(suaLop.getHocKy(), a, 2);
+            jTable4.setValueAt(suaLop.getKhoiHoc(), a, 1);
+            jTable4.setValueAt(suaLop.getSoHS(), a, 6);
+        }
     }//GEN-LAST:event_Button_DSLop_SuaLopMouseClicked
 
     private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
         // TODO add your handling code here:
         if(evt.getClickCount()==2){
-            LopX aa = new LopX();
-            center.add("Lop X", aa);
+            String tenlop=jTable4.getValueAt(jTable4.getSelectedRow(),0).toString();
+            LopX aa = new LopX(tenlop);
+            center.add(tenlop, aa);
             center.setSelectedComponent(aa);
             aa.center = center;
         new CloseTabButton(center,center.getComponentCount()-2);
+           
+            
         }
     }//GEN-LAST:event_jTable4MouseClicked
+
+    private void Button_DSLop_XoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DSLop_XoaMouseClicked
+        // TODO add your handling code here:
+        EditTable edit= new EditTable();
+        edit.removeRowOfTable(jTable4);
+    }//GEN-LAST:event_Button_DSLop_XoaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

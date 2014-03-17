@@ -554,4 +554,37 @@ public class DataTable {
             Logger.getLogger(DataTable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public DefaultTableModel BangDanhSachTaiKhoan(JTable table){
+        try {
+            Object [] nameColumn = {  "Mã Nhân Viên", "Tên Nhân Viên", "Tên Đăng Nhập", "Lựa Chọn" };
+            ArrayList<Object []> data = new ArrayList<Object []>();
+            rs1 = statement.executeQuery("select * from accounts");
+            while(rs1.next()){
+                 Object[]str = new Object[4];
+                str[0] = rs1.getString(1);
+                str[1] = rs1.getString(3);
+                str[2] = rs1.getString(4);
+                str[3] = false;
+                data.add(str);
+            }
+            Object [][] rowColumn = new Object[data.size()][];
+            for (int i = 0; i < data.size(); i++) {
+            rowColumn[i] = data.get(i);
+            model = new DefaultTableModel(rowColumn, nameColumn){
+                Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+            };
+            table.setModel(model);
+           }
+        } catch (SQLException ex) {
+            Logger.getLogger(DataTable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return model;
+        
+    }
 }

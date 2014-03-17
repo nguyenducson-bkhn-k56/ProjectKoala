@@ -18,7 +18,7 @@ public class ThemGia extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-    //lay gia tri cua 
+    //lay gia tri cua cac doi tuong trong GUI (Dark)
     public boolean getButton()
     {
         return button;

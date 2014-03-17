@@ -17,6 +17,16 @@ public class ThemSuaLop extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+    public ThemSuaLop(java.awt.Frame parent,boolean modal,String tenlop, String giaovien, String hocky, String khoihoc,String trungtam, String sohs)
+    { super(parent, modal);
+        initComponents();
+        edit_tenlop.setText(tenlop);
+        edit_giaovien.setText(giaovien);
+        combo_kihoc.setSelectedItem(hocky);
+        combo_khoihoc.setSelectedItem(khoihoc);
+        combo_khoihoc.setSelectedItem(trungtam);
+        spin_tonghs.setValue(Integer.parseInt(sohs));
+    }
     //get cac gia tri 
     public boolean getButton()
     {
@@ -89,7 +99,7 @@ public class ThemSuaLop extends javax.swing.JDialog {
 
         jLabel6.setText("Khối Học");
 
-        combo_khoihoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NẮNG MAIi(SUNSHINE)", "TỔ ONG(BEEHEVE)", "TỔ KÉN(CHRYSARYS)", "MẪU GIÁO(KINDERGENTEN)" }));
+        combo_khoihoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NẮNG MAI (SUNSHINE)", "TỔ ONG (BEEHIVE)", "TỔ KÉN(CHRYSARYS)", "MẪU GIÁO (KINDERGENTEN)" }));
 
         combo_kihoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4" }));
 
@@ -125,7 +135,7 @@ public class ThemSuaLop extends javax.swing.JDialog {
                     .addComponent(edit_giaovien, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(spin_tonghs, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
@@ -137,9 +147,11 @@ public class ThemSuaLop extends javax.swing.JDialog {
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(combo_khoihoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(combo_kihoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(combo_kihoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(Ok, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Ok, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Cancle)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -165,11 +177,11 @@ public class ThemSuaLop extends javax.swing.JDialog {
                     .addComponent(jLabel4)
                     .addComponent(spin_tonghs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(combo_trungtam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Ok)
-                    .addComponent(Cancle))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Cancle, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Ok, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
 
         pack();

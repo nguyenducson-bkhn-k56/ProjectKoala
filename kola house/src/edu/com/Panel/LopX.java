@@ -25,14 +25,51 @@ public class LopX extends javax.swing.JPanel {
     
     private DefaultTableModel model;
     public JTabbedPane center;
-    private int mshs;
+    private int mshs;// de them vao bang tam thoi
+    private int malop;
     /**
      * Creates new form LopX
      */
+    /*
     public LopX() {
         initComponents();
-       model= new DataBase.DataTable().BangDanhHSLop(1, jTable1);
-       mshs=5;
+        model= new DataBase.DataTable().BangDanhHSLop(malop, jTable1);
+        mshs=5;
+    }
+    */
+    public LopX(String tenlop) {
+        initComponents();
+        setMaLopFromTen(tenlop);
+        model= new DataBase.DataTable().BangDanhHSLop(malop, jTable1);
+        mshs=5;
+    }
+    
+    public LopX(int malop) {
+        initComponents();
+        setMaLop(malop);
+        model= new DataBase.DataTable().BangDanhHSLop(malop, jTable1);
+        mshs=5;
+    }
+    public void setMaLop(int malop)
+    {
+        this.malop=malop;
+    }
+    public int getMaLop()
+    {
+        return malop;
+    }
+    public void setMaLopFromTen(String tenlop)
+    {
+        if (tenlop.equals("SUNSHINE_1")) this.malop=1;
+        else if(tenlop.equals("SUNSHINE_2")) this.malop=2;
+        else if(tenlop.equals("SUNSHINE_3")) this.malop=3;
+        else if(tenlop.equals("BEEHIVE_1")) this.malop=4;
+        else if(tenlop.equals("BEEHIVE_2")) this.malop=5;
+        else if(tenlop.equals("BEEHIVE_3")) this.malop=6;
+        else if(tenlop.equals("CHRYSALIS_1")) this.malop=7;
+        else if(tenlop.equals("CHRYSALIS_1")) this.malop=8;
+        else if(tenlop.equals("KINDERGARTEN_1")) this.malop=9;
+        else this.malop=10;
     }
 
     /**
@@ -187,21 +224,15 @@ public class LopX extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 4427, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lopX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lopX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1107, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lopX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lopX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
